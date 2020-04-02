@@ -1,6 +1,9 @@
 import Song from "./Models/Song.js";
 
 let _state = {
+  /**@type {Song} */
+  // @ts-ignore
+  activeSong: {},
   /** Collection of Songs from search Results
    * @type {Song[]} */
   songs: [],
@@ -13,6 +16,9 @@ let _state = {
  * @type {{[x:string]: function[]}}
  */
 let _listeners = {
+  // NOTE listener prop need to be set to an array
+  // @ts-ignore
+  activeSong: [],
   songs: [],
   playlist: []
 };

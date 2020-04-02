@@ -3,14 +3,31 @@ import SongService from "../Services/SongsService.js";
 
 //Private
 /**Draws the Search results to the page */
-function _drawResults() {}
+function _drawResults() {
+  let template = '';
+  store.State.songs.forEach(song => template += song.Template)
+  document.getElementById('songs').innerHTML = template
+}
+
+function _drawActiveSong() {
+  let template = store.State.activeSong.ActiveTemplate
+  document.getElementById('active-song').innerHTML = template;
+}
+
 /**Draws the Users saved songs to the page */
-function _drawPlaylist() {}
+function _drawPlaylist() {
+  let template = '';
+  store.State.playlist.forEach(playlist => template += playlist.playlistTemplate)
+  document.getElementById('playlist').innerHTML = template
+}
 
 //Public
 export default class SongsController {
   constructor() {
     //TODO Don't forget to register your subscribers
+    store.subscribe('songs', _drawResults)
+    store.subscribe('activeSong', _drawActiveSong)
+    store.subscribe('playlist', _drawPlaylist)
   }
 
   /**Takes in the form submission event and sends the query to the service */
@@ -26,9 +43,15 @@ export default class SongsController {
 
   /**
    * Takes in a song id and sends it to the service in order to add it to the users playlist
-   * @param {string} id
+   *
    */
-  addSong(id) {}
+  addSong(id) {
+    SongService.addSong(id);
+  }
+
+  setActiveSong(id){
+    SongService.setActiveSong(id)
+  }
 
   /**
    * Takes in a song id to be removed from the users playlist and sends it to the server

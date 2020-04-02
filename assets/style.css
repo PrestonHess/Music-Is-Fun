@@ -1,0 +1,27 @@
+.banner{
+    text-align: center;
+    background: #6c757d;
+    font-size: 40px;
+    border-bottom: 2px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+
+    border-style: solid;
+    border-color: black;
+    font-family: Helvetica;
+    
+    
+}
+          
+.activeText{
+    font-family: Helvetica;
+    text-align: center;
+    font-size: 40px;
+}
+
+.bottomText{
+    font-size: 15px;
+    text-align: center;
+    font-family: Helvetica;
+}
