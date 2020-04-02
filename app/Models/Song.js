@@ -54,7 +54,7 @@ export default class Song {
     <div class="card my-3 shadow">
       <img onclick="app.songsController.setActiveSong('${this._id}')" 
         src="${this.albumArt}" class="card-img-top img-fluid" alt="...">
-        <button type="button" class="close text-danger" onclick="app.songsController.delete('${this._id}')">
+        <button type="button" class="close text-danger" onclick="app.songsController.removeSong('${this._id}')">
         <span>&times;</span>
         </button>
       <div class="card-body">
